@@ -8,5 +8,5 @@
 (test 0 (p))
 
 ; 分析 normal-order vs applicative-order
-; normal-order p不会被执行
-; applicative-order p执行然后死循环
+; normal-order 先展开再执行 p不会被执行
+; applicative-order p执行 然后死循环
