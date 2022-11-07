@@ -1,4 +1,5 @@
 #lang sicp
+; 联系linear recursive
 
 ; Ackermann’s function
 (define (A x y)

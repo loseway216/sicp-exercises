@@ -1,5 +1,6 @@
 #lang sicp
-; Pascal’s triangle.
+; Pascal’s triangle, tree recursive
+
 ;         1
 ;        1   1
 ;      1   2   1
@@ -18,3 +19,5 @@
 (pascal 4 2)
 (pascal 5 2)
 (pascal 5 3)
+(pascal 5 4)
+(pascal 6 4)

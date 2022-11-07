@@ -1,8 +1,14 @@
 #lang sicp
+; 分析一个tree-recursion算法的复杂度
+
 ; 换零钱，面值50 25 10 5 1
 (define (count-change amount)
   (cc amount 5))
 
+; 核心算法：不用A硬币的方法 + 剩下的钱用A硬币的方法
+; tree recursion
+; 空间O(n)
+; 步骤O(x的n次方)
 (define (cc amount kinds-of-coins)
   (cond
     [(= amount 0) 1]
@@ -20,3 +26,4 @@
     [(= kinds-of-coins 5) 50]))
 
 (count-change 100)
+(count-change 11)
