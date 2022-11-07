@@ -21,7 +21,7 @@
     [else (+ a (* a (- b 1)))]))
 
 ; iterative recursive
-; 利用一个中间值暂存结果，枚举几个例子更容易理解
+; 利用一个中间值叠加暂存a的值，枚举几个例子更容易理解
 (define (fast-multi a b)
   (fast-multi-iter a b 0))
 
