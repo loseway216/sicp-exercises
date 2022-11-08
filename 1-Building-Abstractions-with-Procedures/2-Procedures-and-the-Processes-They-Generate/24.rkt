@@ -1,34 +1,34 @@
 #lang sicp
-; 分析时间
+; 使用fast-prime O(logn) 优化timed-prime-test
 
-; 给定打印时间的方法
 (define (timed-prime-test n)
   (newline)
   (display n)
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
-  (if (prime? n) (report-prime (- (runtime) start-time))))
+  (if (fast-prime? n 1000) (report-prime (- (runtime) start-time))))
 
 (define (report-prime elapsed-time)
   (display " *** ")
   (display elapsed-time))
 
-; 给定寻找素数的方法
-(define (prime? n)
-  (= n (smallest-divisor n)))
-
-(define (smallest-divisor n)
-  (find-divisor n 2))
-
-(define (find-divisor n test-divisor)
+(define (fast-prime? n times)
   (cond
-    [(> (square test-divisor) n) n]
-    [(divides? test-divisor n) test-divisor]
-    [else (find-divisor n (+ test-divisor 1))]))
+    [(= times 0) true]
+    [(fermat-test n) (fast-prime? n (- times 1))]
+    [else false]))
 
-(define (divides? a b)
-  (= (remainder b a) 0))
+(define (expmod base exp m)
+  (cond
+    [(= exp 0) 1]
+    [(even? exp) (remainder (square (expmod base (/ exp 2) m)) m)]
+    [else (remainder (* base (expmod base (- exp 1) m)) m)]))
+
+(define (fermat-test n)
+  (define (try-it a)
+    (= (expmod a n n) a))
+  (try-it (+ 1 (random (- n 1)))))
 
 (define (square a)
   (* a a))
