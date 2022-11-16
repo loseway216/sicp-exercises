@@ -1,4 +1,5 @@
 #lang sicp
+; 实现deep-reversesss
 
 (define (reverse items)
   (define (iter list result)

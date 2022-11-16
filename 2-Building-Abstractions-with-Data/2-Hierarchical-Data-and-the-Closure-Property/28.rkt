@@ -1,4 +1,5 @@
 #lang sicp
+; 实现flat
 
 (define nil '())
 

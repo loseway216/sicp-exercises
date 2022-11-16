@@ -1,4 +1,5 @@
 #lang sicp
+; 用递归和map实现遍历操作list元素
 
 (define (square-list items)
   (if (null? items) nil (cons (* (car items) (car items)) (square-list (cdr items)))))

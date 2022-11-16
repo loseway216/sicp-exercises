@@ -1,4 +1,5 @@
 #lang sicp
+; 实现for-each
 
 (define (for-each proc list)
   (cond

@@ -1,4 +1,5 @@
 #lang sicp
+; 用迭代递归优化21
 
 (define (square x)
   (* x x))

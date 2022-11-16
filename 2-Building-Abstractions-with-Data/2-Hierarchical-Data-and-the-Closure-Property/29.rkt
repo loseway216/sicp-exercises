@@ -1,4 +1,5 @@
 #lang sicp
+; 联系嵌套的数据结构
 
 (define (make-mobile left right)
   (list left right))
@@ -22,8 +23,9 @@
   (cond
     [(null? mobile) 0]
     [(not (pair? mobile)) mobile]
-    [else (+ (total-weight (branch-structure (left-branch mobile)))
-             (total-weight (branch-structure (right-branch mobile))))]))
+    [else
+     (+ (total-weight (branch-structure (left-branch mobile)))
+        (total-weight (branch-structure (right-branch mobile))))]))
 
 (define (balanced mobile)
   (let ([top-left-branch (left-branch mobile)] [top-right-branch (right-branch mobile)])

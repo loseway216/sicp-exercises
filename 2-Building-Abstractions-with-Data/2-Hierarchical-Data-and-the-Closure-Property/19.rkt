@@ -1,4 +1,5 @@
 #lang sicp
+; 优化找零钱
 
 (define (cc amount coin-values)
   (cond

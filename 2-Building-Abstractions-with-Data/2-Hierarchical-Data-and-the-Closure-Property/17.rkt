@@ -1,4 +1,5 @@
 #lang sicp
+; list最后一个元素
 
 (define (last-pair items)
   (define (iter i)

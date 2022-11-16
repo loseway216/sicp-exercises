@@ -1,4 +1,5 @@
 #lang sicp
+; 反转list
 
 (define nil '())
 
