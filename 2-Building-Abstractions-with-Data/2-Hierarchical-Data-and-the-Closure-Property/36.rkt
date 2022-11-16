@@ -1,5 +1,6 @@
 #lang sicp
 ; 操作嵌套序列
+; 关键点 (map car seqs) 将子list的第一项map出来
 
 (define (accumulate op initial sequence)
   (if (null? sequence) initial (op (car sequence) (accumulate op initial (cdr sequence)))))

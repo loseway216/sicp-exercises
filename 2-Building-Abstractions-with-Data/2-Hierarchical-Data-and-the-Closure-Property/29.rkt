@@ -8,7 +8,7 @@
   (car mobile))
 
 (define (right-branch mobile)
-  (car (cdr mobile)))
+  (cadr mobile))
 
 (define (make-branch length structure)
   (list length structure))
@@ -17,15 +17,14 @@
   (car branch))
 
 (define (branch-structure branch)
-  (car (cdr branch)))
+  (cadr branch))
 
 (define (total-weight mobile)
   (cond
     [(null? mobile) 0]
     [(not (pair? mobile)) mobile]
-    [else
-     (+ (total-weight (branch-structure (left-branch mobile)))
-        (total-weight (branch-structure (right-branch mobile))))]))
+    [else (+ (total-weight (branch-structure (left-branch mobile)))
+             (total-weight (branch-structure (right-branch mobile))))]))
 
 (define (balanced mobile)
   (let ([top-left-branch (left-branch mobile)] [top-right-branch (right-branch mobile)])

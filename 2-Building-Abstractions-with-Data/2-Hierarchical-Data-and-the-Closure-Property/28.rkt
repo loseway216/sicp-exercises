@@ -1,14 +1,6 @@
 #lang sicp
 ; 实现flat
 
-(define nil '())
-
-; (define (fringe list)
-;   (if (null? list)
-;       nil
-;       (let ([first (car list)] [rest (cdr list)])
-;         (if (not (pair? first)) (cons first (fringe rest)) (cons (fringe first) (fringe rest))))))
-
 (define (fringe list)
   (define (iter first result)
     (cond
