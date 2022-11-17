@@ -19,6 +19,8 @@
                          (queen-cols (- k 1))))))
   (queen-cols board-size))
 
+; col = 8
+; (((1 8) . 1) ((2 8) . 1) ((3 8) . 1) ((4 8) . 1) ((5 8) . 1) ((6 8) . 1) ((7 8) . 1) ((8 8) . 1))
 (define (adjoin-position row col rest-of-queens)
   (cons (list row col) rest-of-queens))
 
@@ -27,12 +29,29 @@
 (define (enumerate-interval low high)
   (if (> low high) nil (cons low (enumerate-interval (+ low 1) high))))
 
+; TODO: 烧脑
+(define (safe? k positions)
+  ())
+
+(define (queen-in-k col positions)
+  (cond
+    [(null? positions) nil]
+    [(= col (cadar positions)) (car positions)]
+    [else (queen-in-k col (cdr positions))]))
+
+; (map (lambda (new-row) (adjoin-position new-row 8 1)) (enumerate-interval 1 8))
+
+(define (same-row queenA queenB)
+  (= (car queenA) (car queenB)))
+
+(define (same-left-diagonal queenA queenB)
+  (= (+ (car queenA) (cadar queenA)) (+ (car queenB) (cadar queenB))))
+
+(define (same-right-diagonal queenA queenB)
+  (= (- (car queenA) (cadar queenA)) (- (car queenB) (cadar queenB))))
+
 (define (filter proc sequence)
   (cond
     [(null? sequence) nil]
     [(proc (car sequence)) (cons (car sequence) (filter proc (cdr sequence)))]
     [else (filter proc (cdr sequence))]))
-
-; TODO: 烧脑
-(define (safe? k positions)
-  ())
