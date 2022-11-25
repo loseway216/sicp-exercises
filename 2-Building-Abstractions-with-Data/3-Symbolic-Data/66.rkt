@@ -1,4 +1,5 @@
 #lang sicp
+; 利用树优化查找效率
 
 (define (lookup given-key set-of-records)
   (cond
