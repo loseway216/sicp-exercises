@@ -1,4 +1,5 @@
 #lang sicp
+; 创建银行账户+密码校验
 
 (define (make-account balance password)
   (let ([couter 0])

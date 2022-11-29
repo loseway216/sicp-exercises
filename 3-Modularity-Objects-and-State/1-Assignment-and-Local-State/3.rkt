@@ -1,4 +1,5 @@
 #lang sicp
+; 创建银行账户
 
 (define (make-account balance password)
   (define (withdraw amount)
