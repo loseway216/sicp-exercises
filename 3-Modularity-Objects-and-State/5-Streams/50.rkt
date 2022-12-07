@@ -11,3 +11,7 @@
 
 (define (stream-cdr stream)
   (force (cdr stream)))
+
+(define x (+ 1 2))
+
+(cons 1 (force (delay x)))
